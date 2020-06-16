@@ -1,11 +1,25 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Portfolio`,
+    description: `takayuki tooyama portfolio`,
+    author: `@tooyama107`,
   },
   plugins: [
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-remark-video",
+      options: {
+        width: 800,
+        height: "auto",
+        preload: "auto",
+        muted: true,
+        autoplay: true,
+        playsinline: true,
+        controls: true,
+        loop: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,6 +27,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
